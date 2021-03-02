@@ -12,43 +12,35 @@ public:
  double a; double b; double c; double d;
  double num=a+b+c+d;
  Quaternion();
- Quaternion(double,double,double,double);
+ Quaternion(double a,double b,double c,double d);
  
- bool operator+(const Quaternion p)
+ Quaternion operator+(const Quaternion p)
  {
    Quaternion new_num;
-   new_num.num+=num;
-   if ( new_num.num==p.num)
-   {
-     return true;
-   }
-  return false;
+   new_num.num+=p.num;
+   return new_num;
+   
  }
 
- bool operator-(const Quaternion p)
+ Quaternion operator-(const Quaternion p)
  {
   Quaternion new_num;
-  if (new_num.num-num==p.num)
-    {
-      return true;
-    }
-  return false; 
+  new_num.num-=p.num;
+  return new_num;
+  
  }
 
-bool operator*(const Quaternion p)
+Quaternion operator*(const Quaternion p)
 {
     Quaternion new_num;
     new_num.num*=2;
-    if (new_num.num==p.num)
-    {
-      return true;
-    }
-    return false;
+    return new_num;
 }
 
-bool operator==(const Quaternion p)
+Quaternion operator==(const Quaternion q)
 {
-  if (num==p.num)
+  Quaternion new_num;
+  if (new_num.num==q.num)
   {
   return true;
   }
@@ -56,6 +48,7 @@ bool operator==(const Quaternion p)
 }
 
 };
+
 
 
 
