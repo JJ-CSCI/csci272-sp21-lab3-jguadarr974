@@ -6,13 +6,18 @@
 
 // Put the assignment code here
 
-class Quaternion 
+class Quaternion
 {
 public:
  double a; double b; double c; double d;
  double num=a+b+c+d;
  Quaternion();
- Quaternion(double a,double b,double c,double d);
+ Quaternion(double w,double x,double y,double z){
+   a=w;
+   b=x;
+   c=y;
+   d=z;
+ }
  
  Quaternion operator+(const Quaternion p)
  {
@@ -33,11 +38,11 @@ public:
 Quaternion operator*(const Quaternion p)
 {
     Quaternion new_num;
-    new_num.num*=2;
+    new_num.num+=num;
     return new_num;
 }
 
-Quaternion operator==(const Quaternion q)
+bool operator==(const Quaternion q)
 {
   Quaternion new_num;
   if (new_num.num==q.num)
@@ -46,9 +51,7 @@ Quaternion operator==(const Quaternion q)
   }
   return false;
 }
-
 };
-
 
 
 
