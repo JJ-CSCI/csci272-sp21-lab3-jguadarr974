@@ -6,8 +6,60 @@
 
 // Put the assignment code here
 
-class Quaternion {
+class Quaternion 
+{
+public:
+ double a; double b; double c; double d;
+ double num=a+b+c+d;
+ Quaternion();
+ Quaternion(double,double,double,double);
+ 
+ bool operator+(const Quaternion p)
+ {
+   Quaternion new_num;
+   new_num.num+=num;
+   if ( new_num.num==p.num)
+   {
+     return true;
+   }
+  return false;
+ }
+
+ bool operator-(const Quaternion p)
+ {
+  Quaternion new_num;
+  if (new_num.num-num==p.num)
+    {
+      return true;
+    }
+  return false; 
+ }
+
+bool operator*(const Quaternion p)
+{
+    Quaternion new_num;
+    new_num.num*=2;
+    if (new_num.num==p.num)
+    {
+      return true;
+    }
+    return false;
+}
+
+bool operator==(const Quaternion p)
+{
+  if (num==p.num)
+  {
+  return true;
+  }
+  return false;
+}
+
 };
+
+
+
+
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
